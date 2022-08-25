@@ -1,0 +1,23 @@
+version: "3"
+services:
+    server:
+        image: stonks
+        command: tail -f /dev/null
+        extra_hosts:
+          - host.docker.internal:host-gateway
+        volumes:
+          - C:\Users\phill\Desktop\stonks:/src
+    mongodb:
+        image: mongo:latest
+        ports:
+          - 27017:27017
+        volumes:
+          - mongodb-storage:/data/db
+    web:
+        image: php:8.1.7-apache
+        ports:
+          - 80:80
+        volumes: 
+          - C:\Users\phill\Desktop\stonks-web:/var/www/html/
+volumes: 
+  mongodb-storage:
