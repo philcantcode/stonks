@@ -15,6 +15,7 @@ func initServer() {
 
 	router.HandleFunc("/get/tracking/all", api.HTTP_JSON_Tracking_GetAll)
 	router.HandleFunc("/put/tracking/ticker", api.HTTP_NONE_PutTicker)
+	router.HandleFunc("/put/update/tracking", api.HTTP_NONE_UpdateTracking)
 
 	router.HandleFunc("/get/yahoo/basic/ticker-lookup", api.HTTP_JSON_Yahoo_StockLookup)
 	router.HandleFunc("/get/yahoo/basic/ticker-lookup/{ticker}", api.HTTP_JSON_Yahoo_StockLookup)
