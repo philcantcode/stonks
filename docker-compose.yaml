@@ -3,8 +3,8 @@ services:
     server:
         image: stonks
         command: tail -f /dev/null
-        extra_hosts:
-          - host.docker.internal:host-gateway
+        ports:
+          - 8008:8008
         volumes:
           - C:\Users\phill\Desktop\stonks:/src
     mongodb:

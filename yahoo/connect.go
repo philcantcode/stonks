@@ -13,7 +13,7 @@ import (
 )
 
 var client = http.Client{
-	Timeout: time.Second * 30,
+	Timeout: time.Second * 60,
 }
 
 func QuerySymbol(symbol string) YFStock {
@@ -29,6 +29,7 @@ func QuerySymbol(symbol string) YFStock {
 	req.Header.Add("X-RapidAPI-Host", "yahoo-finance97.p.rapidapi.com")
 
 	res, err := client.Do(req)
+
 	if err != nil {
 		log.Fatalf("Failed to send request, %s", err)
 	}
@@ -36,7 +37,7 @@ func QuerySymbol(symbol string) YFStock {
 	defer res.Body.Close()
 	body, _ := ioutil.ReadAll(res.Body)
 
-	//fmt.Println(res)
+	fmt.Println(res)
 	fmt.Println(string(body))
 
 	yfStockData := YFStock{}

@@ -14,6 +14,7 @@ var uri string
 var client *mongo.Client
 var System_Logs_DB *mongo.Collection
 var Yahoo_Stocks_DB *mongo.Collection
+var Tracking_Stocks_DB *mongo.Collection
 
 var MONGO_INITIALISED = false
 
@@ -49,6 +50,9 @@ func InitMongo() {
 
 	Yahoo_Stocks_DB = client.Database("yahoo").Collection("stocks")
 	Log("Successfully connected to yahoo stocks mongodb", false)
+
+	Tracking_Stocks_DB = client.Database("tracking").Collection("stocks")
+	Log("Successfully connected to tracking stocks mongodb", false)
 
 	MONGO_INITIALISED = true
 }
