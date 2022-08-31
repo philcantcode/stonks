@@ -1,12 +1,9 @@
 version: "3"
 services:
     server:
-        image: stonks
-        command: tail -f /dev/null
+        build: .
         ports:
           - 8008:8008
-        volumes:
-          - C:\Users\phill\Desktop\stonks:/src
     mongodb:
         image: mongo:latest
         ports:
