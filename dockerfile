@@ -1,11 +1,18 @@
 FROM golang:1.18 AS builder
 
-COPY ./ .
+COPY ./ /src
 
+WORKDIR /src
 RUN go mod tidy
 RUN go build -o stonks .
 
 FROM ubuntu:kinetic
 
-COPY --from=builder /stonks ./
+# Certs
+RUN apt-get update
+RUN apt-get install ca-certificates -y
+
+COPY --from=builder /src/stonks ./
+COPY ./res /res
+
 CMD [ "./stonks" ]

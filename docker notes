@@ -1,0 +1,30 @@
+// Siwtch to default
+docker context use default
+
+// Build it locally
+docker build -t stocksregistry.azurecr.io/stonks:api-server .
+docker build -t stocksregistry.azurecr.io/stonks-web:web-server .
+
+// push
+docker push stocksregistry.azurecr.io/stonks:api-server
+docker push stocksregistry.azurecr.io/stonks-web:web-server
+
+// Switch context to azure
+docker context use azure
+
+// bring online
+docker compose up
+
+-------------------------------------------------------------------------
+
+
+
+docker compose up ==== azure to push
+docker-compose up ==== local
+
+docker push
+
+docker exec -it stonks_web bash// connect az
+
+
+docker exec -it stonks_web bash

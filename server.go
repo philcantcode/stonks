@@ -14,6 +14,7 @@ func initServer() {
 	router := mux.NewRouter()
 
 	router.HandleFunc("/get/tracking/all", api.HTTP_JSON_Tracking_GetAll)
+	router.HandleFunc("/get/tracking/ticker/{ticker}", api.HTTP_JSON_Tracking_ByTicker)
 	router.HandleFunc("/put/tracking/ticker", api.HTTP_NONE_PutTicker)
 	router.HandleFunc("/put/update/tracking", api.HTTP_NONE_UpdateTracking)
 

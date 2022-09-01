@@ -1,20 +1,22 @@
 version: "3"
 services:
     server:
-        build: .
+        image: stocksregistry.azurecr.io/stonks:api-server
         ports:
           - 8008:8008
     mongodb:
         image: mongo:latest
         ports:
           - 27017:27017
-        volumes:
-          - mongodb-storage:/data/db
+        # volumes:
+        #   - mongodb-storage:/data/db
     web:
-        image: php:8.1.7-apache
+        image: stocksregistry.azurecr.io/stonks-web:web-server
         ports:
           - 80:80
-        volumes: 
-          - C:\Users\phill\Desktop\stonks-web:/var/www/html/
-volumes: 
-  mongodb-storage:
+          - 443:443
+        domainname: "srcport"
+        # volumes: 
+        #   - C:\Users\phill\Desktop\stonks-web:/var/www/html/
+# volumes: 
+#   mongodb-storage:
