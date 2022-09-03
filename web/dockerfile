@@ -1,0 +1,11 @@
+FROM php:8.1.7-apache
+COPY / /var/www/html
+
+EXPOSE 80 
+EXPOSE 443
+
+RUN apt update -y
+RUN apt install nano
+RUN apt install certbot python3-certbot-apache -y
+
+RUN echo "Remember to run the SSH setup script"

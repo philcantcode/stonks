@@ -28,3 +28,7 @@ docker exec -it stonks_web bash// connect az
 
 
 docker exec -it stonks_web bash
+
+
+
+docker-compose logs -f server
